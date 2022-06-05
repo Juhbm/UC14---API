@@ -2,4 +2,4 @@
 
 Projeto de API para Banco de Dados de Livros.
 
-Neste repositório encontra-se o Encontro Remoto 1 e 2 realizado. Data de 29/04/2022.
+Neste repositório: Encontro Remoto de 1 a 4 realizados. Data de 05/06/2022.
