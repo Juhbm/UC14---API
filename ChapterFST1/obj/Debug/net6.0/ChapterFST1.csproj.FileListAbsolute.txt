@@ -57,3 +57,4 @@ C:\Users\User\Desktop\PROGRAMAÇÃO\SENAI FULL STACK\UC 14 APIs BACK END\Chapter
 C:\Users\User\Desktop\PROGRAMAÇÃO\SENAI FULL STACK\UC 14 APIs BACK END\ChapterFST1\ChapterFST1\obj\Debug\net6.0\ChapterFST1.pdb
 C:\Users\User\Desktop\PROGRAMAÇÃO\SENAI FULL STACK\UC 14 APIs BACK END\ChapterFST1\ChapterFST1\obj\Debug\net6.0\ChapterFST1.genruntimeconfig.cache
 C:\Users\User\Desktop\PROGRAMAÇÃO\SENAI FULL STACK\UC 14 APIs BACK END\ChapterFST1\ChapterFST1\obj\Debug\net6.0\ref\ChapterFST1.dll
+C:\Users\User\Desktop\PROGRAMAÇÃO\SENAI FULL STACK\UC 14 APIs BACK END\ChapterFST1\ChapterFST1\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

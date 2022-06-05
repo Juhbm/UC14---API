@@ -1,25 +1,20 @@
-﻿using ChapterFST1.Models;
-using ChapterFST1.Repositories;
-using Microsoft.AspNetCore.Authorization;
+﻿using ChapterFST1.Interfaces;
+using ChapterFST1.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ChapterFST1.Controllers
 {
     [Produces("application/json")]
-
     [Route("api/[controller]")]
-
     [ApiController]
-
-    //[Authorize] //autorização para acesso
-    public class LivroController : ControllerBase
+    public class UsuariosController : ControllerBase
     {
-        private readonly LivroRepository _livroRepository;
+        private readonly IUsuarioRepository _iUsuarioRrepository;
 
-        public LivroController(LivroRepository livroRepository)
+        public UsuariosController(IUsuarioRepository usuarioRepository)
         {
-            _livroRepository = livroRepository;
+            _iUsuarioRrepository = usuarioRepository;
         }
 
         [HttpGet]
@@ -27,42 +22,41 @@ namespace ChapterFST1.Controllers
         {
             try
             {
-                return Ok(_livroRepository.Listar());
+                return Ok(_iUsuarioRrepository.Listar());
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
-                throw new Exception(e.Message);
+                throw;
             }
         }
-
-        //aula 28/04/2022
-
+       
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(int id)
         {
             try
             {
-                Livro livro = _livroRepository.BuscarPorId(id);
+                Usuario usuarioEncontrado = _iUsuarioRrepository.BuscarPorId(id);
 
-                if (livro == null)
-                {
+                if (usuarioEncontrado == null)
                     return NotFound();
-                }
-                return Ok(livro);
+              
+                return Ok(usuarioEncontrado);
             }
             catch (Exception)
             {
+
                 throw;
             }
         }
 
         [HttpPost]
-        public IActionResult Cadastrar(Livro livro)
+
+        public IActionResult Cadastrar(Usuario usuario)
         {
             try
             {
-                _livroRepository.Cadastrar(livro);
+                _iUsuarioRrepository.Cadastrar(usuario);
 
                 return StatusCode(201);
             }
@@ -74,13 +68,14 @@ namespace ChapterFST1.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Atualizar(int id, Livro livro)
+
+        public IActionResult Alterar(int id, Usuario usuario)
         {
             try
             {
-                _livroRepository.Atualizar(id, livro);
+                _iUsuarioRrepository.Atualizar(id, usuario);
 
-                return StatusCode(204);
+                return Ok("Usuario Alterado");
             }
             catch (Exception)
             {
@@ -90,14 +85,14 @@ namespace ChapterFST1.Controllers
         }
 
         [HttpDelete("{id}")]
+
         public IActionResult Deletar(int id)
         {
             try
             {
-                _livroRepository.Deletar(id);
+                _iUsuarioRrepository.Deletar(id);
 
-                return StatusCode(204);
-
+                return Ok("Usuario Deletado!");
             }
             catch (Exception)
             {
